@@ -1,0 +1,3 @@
+.banner { /*para os filhos se posicionarem em relação ao banner (absolute do título)*/
+    position: relative;
+}

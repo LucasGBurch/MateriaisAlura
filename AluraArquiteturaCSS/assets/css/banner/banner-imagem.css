@@ -1,0 +1,22 @@
+.banner__imagem { /*72px para desconsiderar o tamanho do cabeçalho!*/
+    background: url(../../img/banner.jpg) no-repeat center / cover;
+    /*shorthands: -image -position -repeat -size*/  
+    width: 100%;
+}
+
+/*
+Responsividade via Media Queries:
+Ela é aplicada às propriedades que "precisam" da responsividade.
+*/
+
+@media screen and (min-width: 0) {
+    .banner__imagem {
+        height: calc(100vh - 51px);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .banner__imagem {
+        height: calc(100vh - 72px);
+    }
+}

@@ -1,0 +1,8 @@
+.menu__link {
+    color: #333333;
+    padding: .5rem 1rem;
+}
+
+.menu__link:hover, .menu__link.ativo { /*ativo é classe somente no "Início" dentre os 3 itens do menu*/
+    border-bottom: 2px solid #0073e6;
+}

@@ -1,0 +1,26 @@
+.pessoa__imagem {
+    background-position: center;
+    background-repeat: no-repeat; /*para a imagem NÃO REPETIR por ser menor que os 300px*/
+    background-size: cover; /*para a imagem OCUPAR TUDO da sua div*/
+    border-radius: 100%; /*tornando as imagens REDONDAS*/
+    height: 300px;
+    margin: 0 auto;
+    width: 300px;
+}
+
+/* Metodologia BEM (Bloco Elemento Modificador)
+B loco: pessoa
+E lemento: imagem
+M odificador: "nome da pessoa"
+*/
+.pessoa__imagem--roberta {
+    background-image: url(../../img/pessoas/roberta.jpg);
+}
+
+.pessoa__imagem--marcela {
+    background-image: url(../../img/pessoas/marcela.jpg);
+}
+
+.pessoa__imagem--andreia {
+    background-image: url(../../img/pessoas/andreia.jpg);
+}

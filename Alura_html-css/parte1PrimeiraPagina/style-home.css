@@ -1,0 +1,101 @@
+body {
+    background-color: lightsteelblue;
+    margin: auto;
+    min-width: 300px;
+}
+
+img#beni {
+    margin: auto;
+    width: 100%;
+    max-height: 400px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+header {
+    background-image: linear-gradient(to bottom, lightslategray, slategray);
+    margin: auto;
+    padding: 0px;
+}
+
+header h1 {
+    text-align: center;
+    margin: auto;
+    padding: 6px 10px 10px 10px;
+}
+
+nav {
+    text-align: center;
+}
+
+nav li {
+    display: inline;
+    margin: 0px 0px 0px 15px;
+}
+
+nav a {
+    text-transform: uppercase;
+    color: black;
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: darkslategray;
+    color: lightcyan;
+    text-decoration: underline;
+    transition: 0.8s;
+}
+
+main {
+    padding: 5px 15px;
+    margin: auto;
+}
+
+section.beneficios {
+    background-color: lightgray;
+    margin: auto;
+    padding: 5px 0px 0px 0px;
+}
+
+h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+img#beneficios {
+    width: 100%;
+    max-width: 50%;
+    vertical-align: bottom;
+}
+
+p {
+    text-align: center;
+}
+
+p#missao {
+    font-size: 20px;
+}
+
+ul {
+    display: inline-block;
+    vertical-align: top;
+}
+
+li.itens {
+    font-style: italic;
+    padding: 6px;
+}
+
+em strong {
+    color: blue;
+}
+
+footer {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: slategray;
+    margin: auto;
+    padding: 10px;
+}
