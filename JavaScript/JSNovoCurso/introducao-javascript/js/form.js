@@ -8,27 +8,28 @@ botaoAdicionar.addEventListener("click", (event) => {
   // Extrai informações do paciente do form:
   var paciente = obtemPacienteDoFormulario(form);
 
-  // Criando a Linha Nova da Tabela:
-  var pacienteTr = montaTr(paciente);
-
   var erros = validaPaciente(paciente); // String vazia ou msg de erro;
-
   if (erros.length > 0) {
     // Se tem a msg de erro ou não;
     exibeMensagensDeErro(erros);
     return; // Esse return vazio faz sair da função para não cadastrar
   }
 
-  // Adicionando o paciente (sua linha preenchida) na tabela:
-  var tabela = document.querySelector("#tabela-pacientes");
-  tabela.appendChild(pacienteTr);
+  adicionaPacienteNaTabela(paciente);
 
   form.reset(); // Limpa os campos!
   var mensagensErro = document.querySelector("#mensagens-erro");
-  mensagensErro.innerHTML = ""; 
+  mensagensErro.innerHTML = "";
   // Zerando uma última vez a lista de msg de erro!
-
 });
+
+function adicionaPacienteNaTabela(paciente) {
+  // Criando a Linha Nova da Tabela:
+  var pacienteTr = montaTr(paciente);
+  // Adicionando o paciente (sua linha preenchida) na tabela:
+  var tabela = document.querySelector("#tabela-pacientes");
+  tabela.appendChild(pacienteTr);
+}
 
 function exibeMensagensDeErro(erros) {
   var ul = document.querySelector("#mensagens-erro");
@@ -119,5 +120,3 @@ function validaPaciente(paciente) {
 
   return erros;
 }
-
-
