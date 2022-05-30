@@ -11,25 +11,17 @@ class NegociacaoController {
     
     /* BOA PRÁTICA:
     Melhor deixar eles como this. no construtor do que declarar como let nos métodos, pois a API precisaria buscar/percorrer o DOM a cada evento adicionar!!
-    Desse modo, a propriedade já fica salva e reutilizável!! */
+    Desse modo, a propriedade já fica salva e reutilizável!!
+    Exemplo: Se os elementos ficassem em adicionar e fossem adicionadas 100 negociações, o DOM teria que buscar 100x
+    */
 
     adiciona(event) {
+
         event.preventDefault(); 
-        // impede submit pra não atualizar página;
+        // impede o submit de atualizar página;
 
-        let data = new Date(
-            ...this._inputData.value // o ... desmembra a Array
-            .split('-')
-            .map((item, indice) => item - indice % 2)
-        );
-        /*
-        Varre a array com ARROW FUNCTION, e muda 2ª posição [1], para não errar o mês
-        Conversão implícita da string item. Só vai subtrair a posição [1], que é o mês, que vem de 0 a 11, por isso precisa decrementar antes com o map()
-
-
-        O .split('-') transforma o array numa string com - e a ALTERNATIVA abaixo troca por vírgula, que seria uma construção de data com os valores literais (dispensando subtrair 1 do mês):
-        .value.replace(/-/g, ',') RegEx = /-/global
-        */
+        let helper = new DateHelper();
+        let data = helper.textoParaData(this._inputData.value);
 
         let negociacao = new Negociacao(
             data,
@@ -37,6 +29,7 @@ class NegociacaoController {
             this._inputValor
         );
 
-        console.log(negociacao);
+       console.log(negociacao);
+       console.log(helper.dataParaTexto(negociacao.data));
     } 
 }

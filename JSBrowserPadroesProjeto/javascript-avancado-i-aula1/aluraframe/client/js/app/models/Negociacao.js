@@ -7,22 +7,22 @@ class Negociacao {
         this._valor = valor;
         Object.freeze(this); // Para congelar o objeto como imutável (mas é raso/shallow, não se aplica em classe como em Date)!!
     }
-    // Curso é de 2016, então ainda usa o _ como convenção pra atributo privado!! Atualmente o # está implementado
+    // Curso é de 2016, então ainda usa o _ como convenção pra atributo privado!! Atualmente o # está implementado;
 
-    get Volume() {
+    get volume() {
 
         return this._quantidade * this._valor;
     }
 
-    get Data() {
+    get data() {
         return new Date(this._data.getTime());
-    } // Programação defensiva, para a data não poder ser alterada no script; a data é instanciada baseada no número do getTime
+    } // Programação defensiva, para a data não poder ser alterada no script; a data é instanciada baseada no número do getTime;
 
-    get Quantidade() {
+    get quantidade() {
         return this._quantidade;
     }
 
-    get Valor() {
+    get valor() {
         return this._valor;
     }
 }
