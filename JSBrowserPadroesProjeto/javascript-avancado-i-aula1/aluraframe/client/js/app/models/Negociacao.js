@@ -16,7 +16,7 @@ class Negociacao {
 
     get data() {
         return new Date(this._data.getTime());
-    } // Programação defensiva, para a data não poder ser alterada no script; a data é instanciada baseada no número do getTime;
+    } // Programação Defensiva: Para a data não poder ser alterada no script; a data é instanciada baseada no número do getTime;
 
     get quantidade() {
         return this._quantidade;

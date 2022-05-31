@@ -7,6 +7,10 @@ class NegociacaoController {
         this._inputData = $('#data'); // a data vem em string, precisa do ajuste com um "new Date()"
         this._inputQuantidade = $('#quantidade');
         this._inputValor = $('#valor'); 
+        this._listaNegociacoes = new ListaNegociacoes();
+        this._negociacoesView = new NegociacoesView($('#negociacoesView'));
+
+        this._negociacoesView.update();
     } 
     
     /* BOA PRÁTICA:
@@ -20,16 +24,25 @@ class NegociacaoController {
         event.preventDefault(); 
         // impede o submit de atualizar página;
 
-        let helper = new DateHelper();
-        let data = helper.textoParaData(this._inputData.value);
+       this._listaNegociacoes.adiciona(this._criaNegociacao());
+       this._limpaFormulario();
+       console.log(this._listaNegociacoes.negociacoes);
+    }
 
-        let negociacao = new Negociacao(
-            data,
-            this._inputQuantidade,
-            this._inputValor
+    _criaNegociacao() {
+
+        return new Negociacao(
+            DateHelper.textoParaData(this._inputData.value),
+            this._inputQuantidade.value,
+            this._inputValor.value
         );
+    }
 
-       console.log(negociacao);
-       console.log(helper.dataParaTexto(negociacao.data));
-    } 
+    _limpaFormulario() { // método privado, só este Controller chama
+
+        this._inputData.value = '';
+        this._inputQuantidade.value = 1;
+        this._inputValor.value = 0.0;
+        this._inputData.focus();
+    }
 }
