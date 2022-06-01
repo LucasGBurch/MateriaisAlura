@@ -7,11 +7,15 @@ class NegociacaoController {
         this._inputData = $('#data'); // a data vem em string, precisa do ajuste com um "new Date()"
         this._inputQuantidade = $('#quantidade');
         this._inputValor = $('#valor');
-
         this._listaNegociacoes = new ListaNegociacoes();
+
         this._negociacoesView = new NegociacoesView($('#negociacoesView'));
         this._negociacoesView.update(this._listaNegociacoes);
-    } 
+
+        this._mensagem = new Mensagem();
+        this._mensagemView = new MensagemView($('#mensagemView'));
+        this._mensagemView.update(this._mensagem)
+    }
     
     /* BOA PRÁTICA:
     Melhor deixar eles como this. no construtor do que declarar como let nos métodos, pois a API precisaria buscar/percorrer o DOM a cada evento adicionar!!
@@ -26,6 +30,9 @@ class NegociacaoController {
 
        this._listaNegociacoes.adiciona(this._criaNegociacao());
        this._negociacoesView.update(this._listaNegociacoes);
+       this._mensagem.texto = 'Negociação adicionada com sucesso!';
+       this._mensagemView.update(this._mensagem);
+
        this._limpaFormulario();
     }
 
