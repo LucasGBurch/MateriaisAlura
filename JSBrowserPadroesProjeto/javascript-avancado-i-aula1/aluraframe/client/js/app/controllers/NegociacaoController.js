@@ -6,11 +6,11 @@ class NegociacaoController {
         // cada input tem seu id (#) no index.html
         this._inputData = $('#data'); // a data vem em string, precisa do ajuste com um "new Date()"
         this._inputQuantidade = $('#quantidade');
-        this._inputValor = $('#valor'); 
+        this._inputValor = $('#valor');
+
         this._listaNegociacoes = new ListaNegociacoes();
         this._negociacoesView = new NegociacoesView($('#negociacoesView'));
-
-        this._negociacoesView.update();
+        this._negociacoesView.update(this._listaNegociacoes);
     } 
     
     /* BOA PRÁTICA:
@@ -25,8 +25,8 @@ class NegociacaoController {
         // impede o submit de atualizar página;
 
        this._listaNegociacoes.adiciona(this._criaNegociacao());
+       this._negociacoesView.update(this._listaNegociacoes);
        this._limpaFormulario();
-       console.log(this._listaNegociacoes.negociacoes);
     }
 
     _criaNegociacao() {
