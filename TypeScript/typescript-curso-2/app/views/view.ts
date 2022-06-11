@@ -1,5 +1,6 @@
 export abstract class View<T> {
     // <T> é Type, de Generics por causa dos métodos!!
+    // abstract impede que ela seja instanciada!!
 
     protected elemento: HTMLElement;
     
