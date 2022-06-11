@@ -1,8 +1,5 @@
-export class NegociacoesView {
-    constructor(seletor) {
-        this.elemento = document.querySelector(seletor);
-        // Recebe o id da div onde fica a tabela do template(), renderizada pelo update()!!
-    }
+import { View } from "./view.js";
+export class NegociacoesView extends View {
     template(model) {
         return `
     <table class="table table-hover table-bordered">
@@ -16,12 +13,13 @@ export class NegociacoesView {
       <tbody>
           
       ${model.lista().map(negociacao => {
+            // Intl é classe de internacionalização do ECMAScript        
             return `
         <tr>
           <td>
           ${new Intl.DateTimeFormat().format(negociacao.data)}
           </td>
-          
+
           <td>
           ${negociacao.quantidade}
           </td>
@@ -32,8 +30,9 @@ export class NegociacoesView {
         </tr>
         `;
         }).join('')
-        // Intl é classe de internacionalização do ECMAScript
         // join porque o lista().map() retorna um Array!
+        // lista() retorna nosso Array de negociacoes.ts
+        // map organiza uma nova por arrowFunction a partir dos três dados (data, quantidade e valor)
         }
       </tbody>
     </table>
