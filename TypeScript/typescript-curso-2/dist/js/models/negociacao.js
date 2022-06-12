@@ -11,4 +11,13 @@ export class Negociacao {
         const data = new Date(this._data.getTime());
         return data;
     }
+    // TODO MÉTODO ESTÁTICO PODE SER CHAMADO DIRETO DA CLASSE!!!
+    // "classe.método"
+    static criaDe(dataString, quantidadeString, valorString) {
+        const exp = /-/g;
+        const date = new Date(dataString.replace(exp, ','));
+        const quantidade = parseInt(quantidadeString);
+        const valor = parseFloat(valorString);
+        return new Negociacao(date, quantidade, valor);
+    }
 }
