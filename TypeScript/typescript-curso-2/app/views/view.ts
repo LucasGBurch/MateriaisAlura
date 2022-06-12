@@ -9,10 +9,11 @@ export abstract class View<T> {
     // Recebe o id da div onde fica a tabela do template(), renderizada pelo update()!!
     }
 
-    update(model: T): void {
-          const template = this.template(model);
-          this.elemento.innerHTML = template;
+    public update(model: T): void {
+        const template = this.template(model);
+        this.elemento.innerHTML = template;
     } // Este é igual aos filhos, só muda o tipo (por isso o Generics T)
 
-    abstract template(model: T): string; // As filhas implementam
+    protected abstract template(model: T): string;
+    // As filhas implementam e só elas podem ter acesso tb
 }

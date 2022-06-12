@@ -3,7 +3,7 @@ import { View } from "./view.js";
 
 export class NegociacoesView extends View<Negociacoes> {
 
-  template(model: Negociacoes): string {
+  protected template(model: Negociacoes): string {
     return `
     <table class="table table-hover table-bordered">
       <thead>
@@ -20,7 +20,7 @@ export class NegociacoesView extends View<Negociacoes> {
         return `
         <tr>
           <td>
-          ${new Intl.DateTimeFormat().format(negociacao.data)}
+          ${this.formatar(negociacao.data)}
           </td>
 
           <td>
@@ -42,10 +42,7 @@ export class NegociacoesView extends View<Negociacoes> {
     `;
   }
 
-  update(model: Negociacoes): void {
-  // Model é o Array de Negociações feita ao final do curso 1!!
-    const template = this.template(model);
-    // console.log(template); // Para visualizar no console como fica.
-    this.elemento.innerHTML = template;
+  private formatar(data: Date): string {
+    return new Intl.DateTimeFormat().format(data);
   }
 }

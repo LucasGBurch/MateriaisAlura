@@ -17,7 +17,7 @@ export class NegociacoesView extends View {
             return `
         <tr>
           <td>
-          ${new Intl.DateTimeFormat().format(negociacao.data)}
+          ${this.formatar(negociacao.data)}
           </td>
 
           <td>
@@ -38,10 +38,7 @@ export class NegociacoesView extends View {
     </table>
     `;
     }
-    update(model) {
-        // Model é o Array de Negociações feita ao final do curso 1!!
-        const template = this.template(model);
-        // console.log(template); // Para visualizar no console como fica.
-        this.elemento.innerHTML = template;
+    formatar(data) {
+        return new Intl.DateTimeFormat().format(data);
     }
 }
