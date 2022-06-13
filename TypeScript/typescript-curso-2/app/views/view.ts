@@ -6,8 +6,13 @@ export abstract class View<T> {
     private escapar = false;
     
     constructor(seletor: string, escapar?: boolean) {
-        this.elemento = document.querySelector(seletor);
-    // Recebe o id da div onde fica a tabela do template(), renderizada pelo update()!!
+         const elemento = document.querySelector(seletor);
+    // Recebe o id da div onde fica a tabela do template(), renderizada pelo update()!! Se ele existir, será declarado no construtor:
+        if (elemento) {
+            this.elemento = elemento as HTMLElement;
+        } else {
+            throw Error(`Seletor ${seletor} não existe no DOM. Verifique.`);
+        }
         if (escapar) { // o ? tornou escapar parâmetro opcional!!
     // parâmetros opcionais devem ser declarados POR ÚLTIMO!!
             this.escapar = escapar;

@@ -13,7 +13,6 @@ export class NegociacoesView extends View {
       <tbody>
           
       ${model.lista().map(negociacao => {
-            // Intl é classe de internacionalização do ECMAScript        
             return `
         <tr>
           <td>
@@ -29,11 +28,7 @@ export class NegociacoesView extends View {
           </td>
         </tr>
         `;
-        }).join('')
-        // join porque o lista().map() retorna um Array!
-        // lista() retorna nosso Array de negociacoes.ts
-        // map organiza uma nova por arrowFunction a partir dos três dados (data, quantidade e valor)
-        }
+        }).join('')}
       </tbody>
     </table>
     `;

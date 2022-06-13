@@ -18,13 +18,12 @@ export class NegociacaoController {
         if (!this.ehDiaUtil(negociacao.data)) {
             this.mensagemView
                 .update('Apenas negociações em dias úteis são aceitas!');
-            return; // Ele nem tenta add se não passa nesta validação.
-        } // Se passar:
-        this.negociacoes.adiciona(negociacao); // Adiciona
+            return;
+        }
+        this.negociacoes.adiciona(negociacao);
         this.limparFormulario();
         this.atualizaView();
     }
-    // getDay: de 0 (dom) a 6 (sab)
     ehDiaUtil(data) {
         return data.getDay() > DiaDaSemana.DOMINGO
             && data.getDay() < DiaDaSemana.SABADO;
@@ -36,7 +35,7 @@ export class NegociacaoController {
         this.inputData.focus();
     }
     atualizaView() {
-        this.negociacoesView.update(this.negociacoes); // Atualiza tabela!
+        this.negociacoesView.update(this.negociacoes);
         this.mensagemView.update('Negociação adicionada com sucesso!');
     }
 }
