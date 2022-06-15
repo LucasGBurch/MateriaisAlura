@@ -1,4 +1,4 @@
-export function logarTempoDeExecucao() {
+export function logarTempoDeExecucao(emSegundos: boolean = false) {
     return function(
         target: any,
         propertyKey: string,
@@ -7,12 +7,18 @@ export function logarTempoDeExecucao() {
         const metodoOriginal = descriptor.value;
 // acima sobrescrevemos o Original, porque cada método tem seu nome e performance (e sua quantidade de parâmetros, por isso o ...args: array ):
         descriptor.value = function(...args: Array<any>) { // ou any[]
+            let divisor = 1;
+            let unidade = 'milisegundos';
+            if (emSegundos) {
+                divisor = 1000;
+                unidade = 'segundos';
+            }
             const t1 = performance.now();
 // Chamando método original depois de t1 e antes de t2:
             const retorno = metodoOriginal.apply(this, args);
             const t2 = performance.now();
-            console.log(`${propertyKey}, tempo de execução: ${(t2 - t1) / 1000} segundos.`)
-            retorno
+            console.log(`${propertyKey}, tempo de execução: ${(t2 - t1) / divisor} ${unidade}.`)
+            return retorno;
         }; // propertyKey é o nome do método!!
 
         return descriptor;
