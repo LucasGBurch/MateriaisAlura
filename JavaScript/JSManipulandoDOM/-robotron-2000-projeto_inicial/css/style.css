@@ -37,6 +37,13 @@ main {
     position: relative;
 }
 
+.botoes {
+   position: relative;
+   right: 5%;
+   bottom: 10%;
+   display: flex;
+}
+
 .robo {
     height: 110%;
     z-index: 1;

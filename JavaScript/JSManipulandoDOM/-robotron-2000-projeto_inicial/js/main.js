@@ -72,6 +72,10 @@ function atualizaEstatisticas(peca) {
   });
 }
 
+function trocaImagem(cor) {
+  document.querySelector(".robo").src = "img/Robotron 2000 - " + cor + ".png";
+}
+
 
 /* Primeiras duas aulas:
 const robotron = document.querySelector("#robotron");
