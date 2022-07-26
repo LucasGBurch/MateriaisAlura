@@ -14,7 +14,8 @@ inputs.forEach(input => {
         });
     }
 
+    // blur: quando perde foco do campo!!
     input.addEventListener('blur', (evento =>
         valida(evento.target)
-    ))
-})
+    ));
+});
